@@ -1,0 +1,106 @@
+---
+title: "RWorksheet_Aposaga"
+output: pdf_document
+date: "2024-09-17"
+---
+#1. Setup a vector named age
+age <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 42, 53, 41, 51, 35, 24, 33, 41)
+
+data_pts <- length(age)
+data_pts 
+
+#2. Find the reciprocal for the values of age
+reciprocal <- 1/age
+
+reciprocal
+
+#3. Assign new age
+assign("new_age",c(age, 0, age))
+
+#4. Sort the values for age
+sort(age)
+
+#5. Find the minimum and maximum value for age
+min(age)
+max(age)
+
+#6. Set up a vector named data
+data <- c(2.4, 2.8, 2.1, 2.5, 2.4, 2.2, 2.5, 2.3, 2.5, 2.3, 2.4, 2.7)
+length(data)
+
+#7. Generates a new vector for data where you double every value of the data
+double_data <- data*2
+
+#8.1 Generate a sequence for the following scenarios
+# Integers from 1 to 100
+one_to100 <- seq(1:100)
+one_to100
+
+#8.2 numbers from 20 to 60
+twenty_to60 <- seq(from = 20, to = 60, by = 1)
+twenty_to60
+
+#8.3 Mean of numbers from 20 to 60
+mean_20to60 <- mean(seq(from=20,to=60,by=1))
+mean_20to60
+
+#8.4 Sum of numbers from 51 to 91
+sum_50to91 <- sum(seq(from=51, to=91, by=1))
+sum_50to91
+
+#8.5 Integers from 1 to 1,000
+oneto1k <- seq(1:1000)
+oneto1k
+
+#a. How many data points from 8.1 to 8.4?
+length(c(one_to100, twenty_to60, mean_20to60, sum_50to91))
+
+#c. For 8.5 find only maximum data points until 10
+until10 <- oneto1k[1:10]
+max_until10 <- max(until10)
+
+until10
+max_until10
+
+#9. Print a vector with the integers between 1 and 100 that are not divisible by 3, 5 and 7 using filter option.
+filtered_num <- Filter(function(i) { all(i %% c(3,5,7) != 0) }, seq(100))
+filtered_num
+
+#10
+#Generate a sequence backwards of the integers from 1 to 100
+sequence <- seq(from = 1, to = 100)
+rev_seq <- rev(sequence)
+
+rev_seq
+
+#11
+#List all the natural numbers below 25 that are multiples of 3 or 5.
+#Find the sum of these multiples.
+limit <- 24
+below25 <- 1:(limit-1)
+multiples <- Filter(function(i) { any(i %% c(3,5) == 0)}, seq(24))
+multi_sum <- sum(multiples)
+multi_sum
+
+data_pts1011 <- length(c(rev_seq, multiples, multi_sum))
+data_pts1011
+
+#12
+x <- {0 + x + 5 + }
+
+#13
+scores <- c(72, 86, 92, 63, 88, 89, 91, 92, 75, 75, 77)
+scores[2]
+scores[3]
+
+#14
+a = c(1,2,NA,4,NA,6,7)
+print(a,na.print="999")
+
+#15
+name = readline(prompt="Input your name: ")
+age = readline(prompt="Input your age: ")
+print(paste("My name is",name, "and I am",age ,"years old."))
+print(R.version.string)
+
+
