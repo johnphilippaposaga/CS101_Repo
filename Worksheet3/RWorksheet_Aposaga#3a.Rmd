@@ -1,0 +1,145 @@
+---
+title: "RWorksheet_Aposaga#3a"
+author: "John Philipp Aposaga"
+date: "2024-09-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.
+a.
+```{r}
+first11Let <- LETTERS[1:11]
+first11Let
+```
+b.
+```{r}
+oddnumLet <- LETTERS[seq(1, 26, by = 2)]
+oddnumLet
+
+```
+c. 
+```{r}
+vowelList <- LETTERS[c(1, 5, 9, 15, 21)]
+vowelList
+```
+d.
+```{r}
+lastLet <- letters[22:26]
+lastLet
+```
+
+e.
+```{r}
+letter15to24 <- letters[15:24]
+letter15to24
+
+```
+
+2.
+a. 
+```{r}
+city <- c("Tugue-garao City", "Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+```
+b.
+```{r}
+temp <- c(42, 39, 34, 34, 30, 27)
+```
+c.
+```{r}
+citytemp <- data.frame(city, temp)
+```
+d.
+```{r}
+names(citytemp) <- c("City", "Temperature")
+citytemp
+```
+e.
+```{r}
+str(citytemp)
+```
+f.
+```{r}
+citytemp[3:4, ]
+```
+g.
+```{r}
+citytemp[which.max(citytemp$Temperature), ]
+citytemp[which.min(citytemp$Temperature), ]
+```
+
+MATRIX
+2.
+a.
+```{r}
+matr <- matrix(c(1,2,3,4,5,6,7,8,11,12,13,14), nrow = 3, ncol = 4)
+matr
+```
+b.
+```{r}
+matr2 <- matr*2
+matr2
+```
+c.
+```{r}
+matr[2,]
+```
+d.
+```{r}
+matr[1:2, 3:4]
+```
+e.
+```{r}
+matr[3, 2:3]
+```
+f.
+```{r}
+matr[,4]
+```
+g.
+```{r}
+rownames(matr) <- c("isa", "dalawa", "tatlo")
+colnames(matr) <- c("uno", "dos","tres", "quatro")
+matr
+```
+h.
+```{r}
+dim(matr) <-c(6,2)
+matr
+```
+
+ARRAYS
+3. 
+a. 
+```{r}
+numericVal <- rep(c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1), 2)
+numArray <- array(numericVal, dim = c(2, 4, 3))
+numArray
+
+```
+b. 
+```{r}
+dim(numArray)
+```
+c.
+```{r}
+dimnames(numArray) <- list(
+  c('a', 'b'),
+  c('A', 'B', 'C', 'D'),
+  c('1st-Dimensional Array',
+    '2nd-Dimensional Array',
+    '3rd-Dimensional Array')
+)
+
+numArray
+```
+
+
+
+
+
+
+
