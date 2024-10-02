@@ -1,0 +1,117 @@
+---
+title: "RWorksheet_Aposaga#3b"
+author: "John Philipp Aposaga"
+date: "2024-10-01"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.
+a.
+```{r}
+dataf <- data.frame(
+  Respondents = c(1:20), 
+  Sex = c(2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2),
+  Fathers_Occupation = c(1, 3, 3, 3, 1, 2, 3, 1, 1, 1, 3, 2, 1, 3, 3, 1, 3, 1, 2, 1),
+  Persons_at_home = c(5, 7, 3, 8, 5, 9, 6, 7, 8, 4, 7, 8, 4, 7, 8, 8, 3, 11, 7, 6),
+  Siblings_at_school = c(6, 4, 4, 1, 2, 1, 5, 3, 1, 2, 3, 2, 5, 5, 2, 1, 2, 5, 3, 2),
+  Types_of_houses = c(1, 2, 3, 1, 1, 3, 3, 1, 2, 3, 2, 3, 2, 2, 3, 3, 3, 3, 3, 2)
+)
+dataf
+
+```
+b.
+```{r}
+str(dataf)
+summary(dataf)
+```
+c.
+```{r}
+mean(dataf[,5])
+```
+d.
+```{r}
+first2 <- dataf[1:2, ]
+first2
+```
+e.
+```{r}
+rowncol <- dataf[c(3,5), c(2,4)]
+rowncol
+```
+f.
+```{r}
+types_houses <- dataf[,6]
+types_houses
+```
+g.
+```{r}
+maleFarm <- subset(dataf, dataf[,2] == 1 & dataf[,3] == 1 )
+maleFarm
+```
+h.
+```{r}
+femaleSchl <- subset(dataf, dataf[,2] == 2 & dataf[,5] >= 5)
+femaleSchl
+```
+2.
+a.
+```{r}
+df = data.frame(Ints=integer(),
+
+Doubles=double(), Characters=character(),
+Logicals=logical(),
+Factors=factor(),
+stringsAsFactors=FALSE)
+
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+
+3.
+a.
+```{r}
+househld <- read.csv("HouseholdData.csv", header = TRUE)
+househld
+```
+
+
+b.
+```{r}
+factor(househld[,2], levels = c("Male", "Female"), labels = c(1,2))
+```
+c.
+
+```{r}
+factor(househld[,6], levels = c("Wood", "Congrete", "Semi-congrete"), labels = c(1,2,3))
+```
+d.
+```{r}
+factor(househld[,3], levels = c(1,2,3), labels = c("Farmer", "Driver", "Others"))
+```
+e.
+```{r}
+subset(househld[,c(2,3)], househld[,2] == 2 & househld[,3] == "Driver")
+```
+
+f.
+```{r}
+subset(househld, househld[,5] >= 5)
+```
+g.
+```{r}
+#The graph highlights how people’s feelings in tweets changed over several days,
+#with shifts in positive, neutral, and negative sentiments. Negative tweets 
+#peaked on July 15, likely in response to bad news, while there was an increase 
+#in positive tweets on July 17, indicating a better mood. By July 20, neutral 
+#tweets became the most common, suggesting more balanced or informational 
+#posts during that time.
+
+
+```
+
+
+
