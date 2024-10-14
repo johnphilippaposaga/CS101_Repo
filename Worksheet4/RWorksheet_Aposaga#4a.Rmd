@@ -1,0 +1,76 @@
+---
+title: "RWorksheet_Aposaga#4a"
+author: "John Philipp Aposaga"
+date: "2024-10-14"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+#1
+#a
+```{r}
+shoeSize <- c(6.5, 9.0, 8.5, 8.5, 10.5, 7.0, 9.5, 9.0, 13.0, 7.5, 10.5, 8.5, 12.0, 10.5, 13.0, 11.5, 8.5, 5.0, 10.0, 6.5, 7.5, 8.5, 10.5, 8.5, 10.5, 11.0, 9.0, 13.0)
+Height <- c(66.0, 68.0, 64.5, 65.0, 70.0, 64.0, 70.0, 71.0, 72.0, 64.0, 74.5, 67.0, 71.0, 71.0, 77.0, 72.0, 59.0, 62.0, 72.0, 66.0, 64.0, 67.0, 73.0, 69.0, 72.0, 70.0, 69.0, 70.0)
+Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M", "M", "M", "F", "F", "M", "F", "F", "M", "M", "F", "M", "M", "M", "M")
+SHG <- data.frame(shoeSize, Height, Gender)
+names(SHG) <- c("Shoe Size", "Height", "Gender")
+SHG
+```
+
+
+
+#b
+```{r}
+SHG_male <- subset(SHG, Gender == "M")
+SHG_male
+
+SHG_female <- subset(SHG, Gender == "F")
+SHG_female
+```
+#c
+```{r}
+mean(shoeSize)
+mean(Height)
+```
+#d
+#There is no relationship between the two variables, since a person's shoe size is different from their height, although they are both attributes of a respondent.
+
+#2
+```{r}
+months <- c("March", "April", "January", "November", "January", "September", "October", "September", "November", "August", "January", "November", "November", "February", "May", "August", "July", "December", "August", "August", "September", "November", "February", "April")
+factor_months_vector <- factor(months)
+factor_months_vector
+```
+#3
+```{r}
+summary(months)
+summary(factor_months_vector)
+```
+#4
+```{r}
+factor_data <- c("East", "West", "North")
+freq <- c(1,4,3)
+
+new_order_data <- factor(factor_data, levels = c("East", "West", "North"))
+new_order_data
+
+fdata <- data.frame(Direction = factor_data, Frequency = freq)
+fdata
+```
+#5
+```{r}
+importmarch <- read.table("import_march.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
+importmarch
+```
+
+
+
+
+
+
+
+
+
