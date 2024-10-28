@@ -65,6 +65,86 @@ fdata
 importmarch <- read.table("import_march.csv", header = TRUE, sep = ",", stringsAsFactors = FALSE)
 importmarch
 ```
+#6
+```{r}
+selnum <- is.na(as.numeric(readline(prompt = "select number from 1 to 50: ")))
+if(selnum < 1 || selnum > 50){
+  print("The number selected is beyond the range of 1 to 50.")
+} else if(selnum == 20){
+  print("TRUE")
+} else {
+  paste("The selected number is", selnum)
+}
+
+
+```
+#7
+```{r}
+bills <- c(1000, 500, 200, 100, 50)
+count <- 0
+min_bills <- function(price){
+  
+  for(bill in bills){
+    if(price >= bill){
+      count <- count + price %% bill
+      price <- price %% bill
+    }
+  }
+  
+  cat("Minimum number of bills needed to purchase a snack:", count, "\n")
+}
+
+min_bills(1550)
+```
+#8a
+```{r}
+Name <- c("Annie", "Thea", "Steve", "Hanna")
+Grade1 <- c(85, 65, 75, 95)
+Grade2 <- c(65, 75, 55, 75)
+Grade3 <- c(85, 90, 80, 100)
+Grade4 <- c(100, 90, 85, 90)
+
+grades <- data.frame(Name, Grade1, Grade2, Grade3, Grade4)
+grades
+```
+#8b
+```{r}
+ave_grades <- apply(grades[,2:5], 1, function(x) sum(x) / length(x) )
+ave_grades
+
+high_achievers <- grades$Name[ave_grades > 90]
+high_achiever_averages <- ave_grades[ave_grades > 90]
+
+for (i in 1:nrow(grades)) {
+  if (ave_grades[i] > 90) {
+    cat(grades$Name[i], "'s average grade this semester is ", ave_grades[i], ".\n", sep = "")
+  }
+}
+
+```
+#8c
+```{r}
+for (j in 2:5) {
+  test_average <- sum(grades[, j]) / nrow(grades)
+  if (test_average < 80) {
+    cat("The ", names(grades)[j], " test was difficult.\n", sep = "")
+  }
+}
+```
+#8d
+```{r}
+for (i in 1:nrow(grades)) {
+  
+  highest_grade <- sort(as.numeric(grades[i, 2:5]), decreasing = TRUE)[1]
+  if (highest_grade > 90) {
+    cat(grades$Name[i], "'s highest grade this semester is ", highest_grade, ".\n", sep = "")
+  }
+}
+```
+
+
+
+
 
 
 
