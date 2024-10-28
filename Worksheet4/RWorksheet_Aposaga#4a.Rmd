@@ -18,6 +18,7 @@ Gender <- c("F", "F", "F", "F", "M", "F", "F", "F", "M", "F", "M", "F", "M", "M"
 SHG <- data.frame(shoeSize, Height, Gender)
 names(SHG) <- c("Shoe Size", "Height", "Gender")
 SHG
+
 ```
 
 
@@ -67,26 +68,26 @@ importmarch
 ```
 #6
 ```{r}
-selnum <- is.na(as.numeric(readline(prompt = "select number from 1 to 50: ")))
-if(selnum < 1 || selnum > 50){
+selnum <- as.numeric(readline(prompt = "Select a number from 1 to 50: "))
+
+if (is.na(selnum) || selnum < 1 || selnum > 50) {
   print("The number selected is beyond the range of 1 to 50.")
-} else if(selnum == 20){
+} else if (selnum == 20) {
   print("TRUE")
 } else {
-  paste("The selected number is", selnum)
+  print(paste("The selected number is", selnum))
 }
-
-
 ```
 #7
 ```{r}
-bills <- c(1000, 500, 200, 100, 50)
-count <- 0
+
 min_bills <- function(price){
+  bills <- c(1000, 500, 200, 100, 50) 
+  count <- 0  
   
-  for(bill in bills){
-    if(price >= bill){
-      count <- count + price %% bill
+  for(bill in bills) {
+    if(price >= bill) {
+      count <- count + price %/% bill 
       price <- price %% bill
     }
   }
